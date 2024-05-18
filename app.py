@@ -24,7 +24,7 @@ def preprocess_image(image):
     return preprocessed_image
 
 # Streamlit UI
-st.write(""" ### **Weather Vision: Predicting Weather Conditions from Image**
+st.write(""" ### Weather Vision: Predicting Weather Conditions from Image
     \nPredict the weather condition from uploaded images\n
     Possible conditions: cloudy, rainy, sunny, sunset
 """)
