@@ -5,7 +5,7 @@ import numpy as np
 import os
 
 class WeatherClassifier:
-    def __init__(self, model_path='model.h5'):
+    def __init__(self, model_path='final_model.h5'):
         self.model_path = model_path
         self.model = self.load_model()
 
