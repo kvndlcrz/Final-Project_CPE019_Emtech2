@@ -25,7 +25,7 @@ def preprocess_image(image):
 # UI setup
 st.write("""
 ### <span style='color:yellow'>Weather Vision:</span> <span style='color:white'>Predicting Weather Conditions from Image</span>
-<div style="text-align: center;">Predict the weather condition from uploaded images. Possible conditions: cloudy, rainy, sunny, sunset</div>
+<div style="text-align: center;">Predict the weather condition from uploaded images. Possible conditions: Cloudy, Rainy, Shine, Sunrise</div>
 """, unsafe_allow_html=True)
 
 # GitHub link
@@ -55,7 +55,7 @@ if uploaded_image is not None:
         prediction = model.predict(preprocessed_image)
 
         # Define weather categories
-        weather_conditions = ['Cloudy', 'Rainy', 'Shine', 'Sunset']
+        weather_conditions = ['Cloudy', 'Rainy', 'Shine', 'Sunrise']
 
         # Determine the predicted weather condition
         predicted_condition = weather_conditions[np.argmax(prediction)]
