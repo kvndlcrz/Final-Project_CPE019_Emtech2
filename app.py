@@ -7,7 +7,6 @@ from PIL import Image
 @st.cache(allow_output_mutation=True)
 def load_model():
     try:
-        st.write("Loading the pre-trained weather classification model...")
         model = tf.keras.models.load_model('final_model.h5')
         st.success("Model loaded successfully!")
         return model
@@ -57,7 +56,7 @@ if uploaded_image is not None:
         prediction = model.predict(preprocessed_image)
 
         # Define weather categories
-        weather_conditions = ['Cloudy', 'Rainy', 'Sunny', 'Sunset']
+        weather_conditions = ['Cloudy', 'Rainy', 'Shine', 'Sunset']
 
         # Determine the predicted weather condition
         predicted_condition = weather_conditions[np.argmax(prediction)]
