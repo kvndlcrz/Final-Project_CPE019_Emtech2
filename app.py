@@ -30,7 +30,7 @@ st.write("""### <span style='color:yellow'>Weather Vision: Predicting Weather Co
 """, unsafe_allow_html=True)
 
 # Upload image
-uploaded_image = st.file_uploader("Choose an image (jpg, png, jpeg) to classify: ", type=["jpg", "png", "jpeg"])
+uploaded_image = st.file_uploader("Choose an image (jpg, png, jpeg) to classify: ", type=["jpg", "png", "jpeg\n\n\n\n"])
 
 st.write(""" \nGithub Link\n
     https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git """)
