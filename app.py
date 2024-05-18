@@ -3,26 +3,25 @@ import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
 
-# Load the CNN model
+# Load the trained CNN model
 model = load_model('final_model.h5')
 
-# Function to preprocess the image
+# Function to preprocess the uploaded image
 def preprocess_image(image):
-    resized_image = image.resize((150, 150))  # Adjust the size according to your model's input size
-    normalized_image = np.array(resized_image) / 255.0
-    preprocessed_image = np.expand_dims(normalized_image, axis=0)
+    resized_image = image.resize((150, 150))  # Resize the image to match model input size
+    normalized_image = np.array(resized_image) / 255.0  # Normalize pixel values
+    preprocessed_image = np.expand_dims(normalized_image, axis=0)  # Add batch dimension
     return preprocessed_image
 
 # Streamlit UI
 st.write("""
-    # Model Deployment on the Cloud
-    \nAn Application of Convolutional Neural Network in Weather ['cloudy', 'rainy', 'shine', 'sunset'] 
-    Prediction with an Accuracy Rate of 90%.
+    # Weather Classifier App
+    \nUses Convolutional Neural Network with 90% Accuracy
 """)
-st.text("Using the Weather Dataset to predict from an uploaded image.")
+st.text("Upload an image (rainy, sunny, cloudy, or sunset) to predict its weather condition.")
 
 # Upload image
-uploaded_image = st.file_uploader("Choose an image that can be classified as rainy, sunset, shine, or cloudy: ", type=["jpg", "png", "jpeg"])
+uploaded_image = st.file_uploader("Choose an image (JPEG, PNG) to classify: ", type=["jpg", "png", "jpeg"])
 
 if uploaded_image is not None:
     # Display the uploaded image
@@ -32,16 +31,16 @@ if uploaded_image is not None:
     # Preprocess the image
     preprocessed_image = preprocess_image(image)
 
+    # Make prediction
     prediction = model.predict(preprocessed_image)
 
-    # Define categories
-    categories = ['Cloudy', 'Rainy', 'Shine', 'Sunrise']
+    # Define weather categories
+    weather_categories = ['Cloudy', 'Rainy', 'Sunny', 'Sunset']
 
-    # Create a dictionary to map index to categories
-    category_mapping = {i: category for i, category in enumerate(categories)}
-
-    # Display prediction
+    # Map prediction index to category
     max_index = np.argmax(prediction)
-    predicted_category = category_mapping[max_index]
-    st.write("Prediction Category:", predicted_category)
-    st.write("Prediction Probability:", prediction[0][max_index])
+    predicted_weather = weather_categories[max_index]
+
+    # Display prediction result
+    st.write("Predicted Weather Condition:", predicted_weather)
+    st.write("Prediction Confidence:", prediction[0][max_index])
