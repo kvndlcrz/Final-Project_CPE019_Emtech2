@@ -15,7 +15,14 @@ class WeatherClassifier:
             # Get the absolute path to the model
             model_path = os.path.join(os.path.dirname(__file__), self.model_path)
             st.write(f"Attempting to load the model from: {model_path}")
-            model = tf.keras.models.load_model(model_path)
+
+            # Load the model with custom objects if needed
+            custom_objects = {
+                # 'CustomLayer': CustomLayer,  # Example of a custom layer
+                # 'custom_activation': custom_activation,  # Example of a custom activation function
+            }
+
+            model = tf.keras.models.load_model(model_path, custom_objects=custom_objects)
             st.write("Model loaded successfully!")
             return model
         except Exception as e:
