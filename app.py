@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 
 class WeatherClassifier:
-    def __init__(self, model_path='best_model.h5'):
+    def __init__(self, model_path='model.h5'):
         self.model_path = model_path
         self.model = self.load_model()
 
