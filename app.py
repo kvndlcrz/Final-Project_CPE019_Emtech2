@@ -37,7 +37,7 @@ uploaded_image = st.file_uploader(
 )
 
 
-st.write("""### <br><br><br><br><div style="text-align: center;"> Github Link
+st.write("""### <br><div style="text-align: center;"> Github Link
      https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git""", 
          unsafe_allow_html=True)
 
