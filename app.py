@@ -4,7 +4,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 
 # Load the CNN model
-model = load_model('cnn_model.h5')
+model = load_model('model.h5')
 
 # Function to preprocess the image
 def preprocess_image(image):
