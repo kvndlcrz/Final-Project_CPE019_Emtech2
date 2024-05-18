@@ -30,9 +30,9 @@ st.write("""
 
 # GitHub link
 st.write("""
-##### <div style="text-align: center;"> GitHub Link
+#### <div style="text-align: center;"> GitHub Link
      https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git
- <br>""", unsafe_allow_html=True)
+ <br><br>""", unsafe_allow_html=True)
 
 # Upload image
 uploaded_image = st.file_uploader(
