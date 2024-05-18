@@ -34,8 +34,6 @@ uploaded_image = st.file_uploader(
     type=["jpg", "png", "jpeg"]
 )
 
-st.write("""<div style="text-align:center;">{}<div>""".format(uploaded_image), unsafe_allow_html=True)
-
 st.write("""### <div style="text-align: center;"> Github Link
      https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git""", 
          unsafe_allow_html=True)
