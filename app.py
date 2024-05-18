@@ -3,25 +3,38 @@ import tensorflow as tf
 from PIL import Image, ImageOps
 import numpy as np
 
-# Define the load_model function
-@st.cache(allow_output_mutation=True)
-def load_model():
-    model_path = 'model.h5'  # Adjust the path to your model file
-    model = tf.keras.models.load_model(model_path, compile=False)
-    return model
+# Set page config
+st.set_page_config(page_title="Multi-class Weather Classification", layout="wide")
 
-# Load the model
-model = load_model()
+# Title and student details
+st.title("Multi-class Weather Classification")
+st.markdown("""
+Name:
+- Kevin Roi A. Sumaya
+- Daniela D. Rabang
 
-# Streamlit app title
-st.write("""
-# Multi-class Weather Classification System
+Course/Section: CPE019/CPE32S5
+
+Date Submitted: May 17, 2024
 """)
 
-# File uploader
-file = st.file_uploader("Choose a weather photo from your computer", type=["jpg", "png"])
+# Load the trained model
+@st.cache(allow_output_mutation=True)
+def load_model():
+    model = tf.keras.models.load_model('model.h5')  # Adjust the model file path
+    return model
 
-# Function to preprocess and predict
+# Define the class names for weather categories
+class_names = ['Cloudy', 'Rain', 'Shine', 'Sunrise']  # Adjust as per your dataset
+
+model = load_model()
+
+# Streamlit app
+st.title("Weather Classification")
+st.write("Upload an image to classify the type of weather.")
+
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
 def import_and_predict(image_data, model):
     size = (64, 64)  # Adjust size if your model expects a different input size
     image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
@@ -31,16 +44,27 @@ def import_and_predict(image_data, model):
     prediction = model.predict(img_reshape)
     return prediction
 
-# Process and display prediction
-if file is None:
-    st.text("Please upload an image file")
-else:
-    image = Image.open(file)
-    st.image(image, use_column_width=True)
-    prediction = import_and_predict(image, model)
-    
-    class_names = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
-    predicted_class = class_names[np.argmax(prediction)]
-    confidence = np.max(prediction)  # Confidence of the prediction
+if uploaded_file is not None:
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Uploaded Image', use_column_width=True)
+    st.write("")
+    st.write("Classifying...")
 
-    st.success(f"Prediction: {predicted_class} with {confidence:.2f} confidence")
+    prediction = import_and_predict(image, model)
+    predicted_class = class_names[np.argmax(prediction)]
+    confidence = np.max(prediction)
+
+    st.write(f"Prediction: {predicted_class}")
+    st.write(f"Confidence: {confidence:.2f}")
+
+# Displaying example images for each weather category
+st.write("## Example Images by Category")
+example_images = {
+    'Cloudy':
+    'Rain': 
+    'Shine': 
+    'Sunrise': 
+}
+for label, path in example_images.items():
+    image = Image.open(path)
+    st.image(image, caption=f'Example of {label}', use_column_width=True)
