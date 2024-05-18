@@ -5,10 +5,18 @@ import numpy as np
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model('final_model.h5')
-    return model
+    try:
+        model = tf.keras.models.load_model('final_model.h5')
+        return model
+    except Exception as e:
+        st.error(f"Error loading model: {e}")
+        return None
 
 model = load_model()
+
+if model is None:
+    st.error("Failed to load the model. Please check the logs for more details.")
+    st.stop()
 
 st.write("""# Weather Classification System""")
 
