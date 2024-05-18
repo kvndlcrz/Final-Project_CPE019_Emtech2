@@ -26,7 +26,6 @@ def preprocess_image(image):
 st.write("""
 ### <span style='color:yellow'>Weather Vision:</span> <span style='color:white'>Predicting Weather Conditions from Image</span>
 <div style="text-align: center;">Predict the weather condition from uploaded images. Possible conditions: cloudy, rainy, sunny, sunset</div>
-<br><br>
 """, unsafe_allow_html=True)
 
 # GitHub link
