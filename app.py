@@ -32,6 +32,11 @@ if uploaded_image is not None:
     image = Image.open(uploaded_image)
     st.image(image, caption='Uploaded Image', use_column_width=True)
 
+    # Preprocess the image
+    preprocessed_image = preprocess_image(image)
+
+    prediction = model.predict(preprocessed_image)
+    
     # Load the model
     model = load_model()
 
