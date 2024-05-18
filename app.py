@@ -35,7 +35,7 @@ if uploaded_image is not None:
     prediction = model.predict(preprocessed_image)
 
     # Define categories
-    categories = ['cloudy', 'rainy', 'shine', 'sunset']
+    categories = ['Cloudy', 'Rainy', 'Shine', 'Sunrise']
 
     # Create a dictionary to map index to categories
     category_mapping = {i: category for i, category in enumerate(categories)}
