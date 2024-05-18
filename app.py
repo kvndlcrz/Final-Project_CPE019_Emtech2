@@ -1,7 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
-from PIL import Image, ImageOps
+from PIL import Image
 
 # Function to load the trained model
 @st.cache(allow_output_mutation=True)
@@ -12,10 +12,10 @@ def load_model():
 # Function to preprocess the uploaded image
 def preprocess_image(image):
     size = (150, 150)
-    image = ImageOps.fit(image, size, Image.ANTIALIAS)
-    img = np.asarray(image)
-    img_reshape = img[np.newaxis, ...]
-    return img_reshape
+    resized_image = image.resize(size)  # Resize the image to match model input size
+    normalized_image = np.array(resized_image) / 255.0  # Normalize pixel values
+    preprocessed_image = np.expand_dims(normalized_image, axis=0)  # Add batch dimension
+    return preprocessed_image
 
 # Streamlit UI
 st.write("""
