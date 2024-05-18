@@ -24,8 +24,10 @@ def preprocess_image(image):
     return preprocessed_image
 
 #UI
-st.write("""### <span style='color:yellow'>Weather Vision: <span style='color:white'>Predicting Weather Conditions from Image</span>
-    \n<div style="text-align: center;">Predict the weather condition from uploaded images. Possible conditions: cloudy, rainy, sunny, sunset\n
+st.write("""
+### <span style='color:yellow'>Weather Vision:</span> <span style='color:white'>Predicting Weather Conditions from Image</span>
+<div style="text-align: center;">Predict the weather condition from uploaded images. Possible conditions: cloudy, rainy, sunny, sunset</div>
+<br><br>
 """, unsafe_allow_html=True)
 
 # Upload image
@@ -34,7 +36,8 @@ uploaded_image = st.file_uploader(
     type=["jpg", "png", "jpeg"]
 )
 
-st.write("""### <div style="text-align: center;"> Github Link
+
+st.write("""### <br><br><div style="text-align: center;"> Github Link
      https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git""", 
          unsafe_allow_html=True)
 
