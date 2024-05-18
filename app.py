@@ -31,12 +31,12 @@ st.write("""
 # GitHub link
 st.write("""
 ### <div style="text-align: center;"> GitHub Link
-     https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git <br>
+     https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git
 """, unsafe_allow_html=True)
 
 # Upload image
 uploaded_image = st.file_uploader(
-    label="Choose an image (jpg, png, jpeg) to classify:",
+    label=" <br> <br>Choose an image (jpg, png, jpeg) to classify:",
     type=["jpg", "png", "jpeg"]
 )
 
