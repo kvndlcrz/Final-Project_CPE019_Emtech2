@@ -60,9 +60,9 @@ if uploaded_file is not None:
 # Displaying example images for each weather category
 st.write("## Example Images by Category")
 example_images = {
-    'Cloudy':
-    'Rain': 
-    'Shine': 
+    'Cloudy',
+    'Rain',
+    'Shine', 
     'Sunrise': 
 }
 for label, path in example_images.items():
