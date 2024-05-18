@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 import numpy as np
+import os
 
 class WeatherClassifier:
     def __init__(self, model_path='model.h5'):
@@ -11,8 +12,10 @@ class WeatherClassifier:
     @st.cache(allow_output_mutation=True)
     def load_model(self):
         try:
-            st.write("Attempting to load the model...")
-            model = tf.keras.models.load_model(self.model_path)
+            # Get the absolute path to the model
+            model_path = os.path.join(os.path.dirname(__file__), self.model_path)
+            st.write(f"Attempting to load the model from: {model_path}")
+            model = tf.keras.models.load_model(model_path)
             st.write("Model loaded successfully!")
             return model
         except Exception as e:
@@ -34,7 +37,7 @@ class WeatherClassifier:
         return prediction
 
 # Streamlit UI
-st.write("""# Weather Classification System""")
+st.write("# Weather Classification System")
 
 # File uploader
 file = st.file_uploader("Choose a weather image from your computer", type=["jpg", "png"])
@@ -56,4 +59,4 @@ else:
     # Output the result
     if prediction is not None:
         result = class_names[np.argmax(prediction)]
-        st.success("Predicted Weather: {}".format(result))
+        st.success(f"Predicted Weather: {result}")
