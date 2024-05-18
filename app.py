@@ -30,10 +30,12 @@ st.write("""### <span style='color:yellow'>Weather Vision: <span style='color:wh
 
 # Upload image
 uploaded_image = st.file_uploader(
-    """<div style="text-align:center;">Choose an image (jpg, png, jpeg) to classify:</div>""", 
-    unsafe_allow_html=True,
-    type=["jpg", "png", "jpeg"]
+    label="""<div style="text-align:center;">Choose an image (jpg, png, jpeg) to classify:</div>""", 
+    type=["jpg", "png", "jpeg"],
+    accept_multiple_files=False,
+    help="Allowed formats: jpg, png, jpeg"
 )
+
 
 st.write("""### <div style="text-align: center;"> Github Link
      https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git""", 
