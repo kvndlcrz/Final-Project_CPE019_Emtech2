@@ -23,17 +23,23 @@ def preprocess_image(image):
     preprocessed_image = np.expand_dims(normalized_image, axis=0)  # Add batch dimension
     return preprocessed_image
 
-# Streamlit UI
+#UI
 st.write("""
-    # Weather Classifier App
-    \nPredict the weather condition from uploaded images\n
-    Possible conditions: cloudy, rainy, sunny, sunset
-""")
-
-st.text("Upload an image.")
+### <span style='color:yellow'>Weather Vision:</span> <span style='color:white'>Predicting Weather Conditions from Image</span>
+<div style="text-align: center;">Predict the weather condition from uploaded images. Possible conditions: cloudy, rainy, sunny, sunset</div>
+<br><br>
+""", unsafe_allow_html=True)
 
 # Upload image
-uploaded_image = st.file_uploader("Choose an image (jpg, png, jpeg) to classify: ", type=["jpg", "png", "jpeg"])
+uploaded_image = st.file_uploader(
+    label="Choose an image (jpg, png, jpeg) to classify:",
+    type=["jpg", "png", "jpeg"]
+)
+
+
+st.write("""### <br><div style="text-align: center;"> Github Link
+     https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git""", 
+         unsafe_allow_html=True)
 
 if uploaded_image is not None:
     # Display the uploaded image
@@ -51,7 +57,7 @@ if uploaded_image is not None:
         prediction = model.predict(preprocessed_image)
 
         # Define weather categories
-        weather_conditions = ['Cloudy', 'Rainy', 'Sunny', 'Sunset']
+        weather_conditions = ['Cloudy', 'Rainy', 'Shine', 'Sunset']
 
         # Determine the predicted weather condition
         predicted_condition = weather_conditions[np.argmax(prediction)]
