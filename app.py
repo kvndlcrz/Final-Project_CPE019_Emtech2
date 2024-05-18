@@ -1,48 +1,59 @@
 import streamlit as st
-import numpy as np
+import tensorflow as tf
 from PIL import Image
-from tensorflow.keras.models import load_model
+import numpy as np
 
-# Load the CNN model
-model = load_model('model.h5')
+class WeatherClassifier:
+    def __init__(self, model_path='best_model.h5'):
+        self.model_path = model_path
+        self.model = self.load_model()
 
-# Function to preprocess the image
-def preprocess_image(image):
-    resized_image = image.resize((150, 150))  # Adjust the size according to your model's input size
-    normalized_image = np.array(resized_image) / 255.0
-    preprocessed_image = np.expand_dims(normalized_image, axis=0)
-    return preprocessed_image
+    @st.cache(allow_output_mutation=True)
+    def load_model(self):
+        try:
+            st.write("Attempting to load the model...")
+            model = tf.keras.models.load_model(self.model_path)
+            st.write("Model loaded successfully!")
+            return model
+        except Exception as e:
+            st.error(f"Error loading model: {e}")
+            return None
 
-st.write("Cañesa, Anjela T. | Llave, Kenneth Gabriel | CPE019 | CPE32S5")
-st.image("weather.jpg", width=400)
-st.write("""
-        # Model Deployment on the Cloud
-        \n An Application of Convolutional Neural Network in Weather ['cloudy', 'rainy', 'sunshine', 'sunset'] 
-        Prediction with an Accuracy Rate of 82%.
-        """)
-st.text("Using the Weather Dataset to predict from an uploaded image.")
+    def predict(self, image_data):
+        if self.model is None:
+            st.error("Failed to load the model. Please check the logs for more details.")
+            return None
+        
+        size = (64, 64)
+        image = Image.open(image_data)
+        image = image.resize(size)
+        img_array = np.array(image)
+        img_array = img_array / 255.0  # Normalize the image
+        img_array = np.expand_dims(img_array, axis=0)
+        prediction = self.model.predict(img_array)
+        return prediction
 
-# Upload image
-uploaded_image = st.file_uploader("Choose an image that can be classified as rainy, sunset, sun shine, or cloudy: ", type=["jpg", "png", "jpeg"])
+# Streamlit UI
+st.write("""# Weather Classification System""")
 
-if uploaded_image is not None:
-    # Display the uploaded image
-    image = Image.open(uploaded_image)
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+# File uploader
+file = st.file_uploader("Choose a weather image from your computer", type=["jpg", "png"])
 
-    # Preprocess the image
-    preprocessed_image = preprocess_image(image)
+# Create Weather Classifier object
+weather_classifier = WeatherClassifier()
 
-    prediction = model.predict(preprocessed_image)
-
-    # Define categories
-    categories = ['cloudy', 'rainy', 'shine', 'sunset']
-
-    # Create a dictionary to map index to categories
-    category_mapping = {i: category for i, category in enumerate(categories)}
-
-    # Display prediction
-    max_index = np.argmax(prediction)
-    predicted_category = category_mapping[max_index]
-    st.write("Prediction Category:", predicted_category)
-    st.write("Prediction Probability:", prediction[0][max_index])
+# Main logic
+if file is None:
+    st.text("Please upload an image file")
+else:
+    image = Image.open(file)
+    st.image(image, use_column_width=True)
+    prediction = weather_classifier.predict(file)
+    
+    # Weather class names
+    class_names = ['Cloudy', 'Rain', 'Shine', 'Sunrise']  
+    
+    # Output the result
+    if prediction is not None:
+        result = class_names[np.argmax(prediction)]
+        st.success("Predicted Weather: {}".format(result))
