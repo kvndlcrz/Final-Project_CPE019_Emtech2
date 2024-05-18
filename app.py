@@ -32,7 +32,11 @@ if uploaded_image is not None:
     # Display uploaded image
     image = Image.open(uploaded_image)
     st.image(image, caption='Uploaded Image', use_column_width=True)
-
+    st.write("""
+    # Weather Classifier App
+    \nPredicts weather condition from uploaded images\n
+    cloudy, rainy, shine, sunset
+""")
     # Load the model
     model = load_model()
 
