@@ -39,4 +39,3 @@ else:
     confidence = np.max(prediction)  # Confidence of the prediction
 
     st.success(f"Prediction: {predicted_class} with {confidence:.2f} confidence")
- 
