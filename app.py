@@ -31,7 +31,7 @@ st.write("""
 # GitHub link
 st.write("""
 ### <div style="text-align: center;"> GitHub Link
-     [https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git](https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git)
+    https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git](https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git)
 """, unsafe_allow_html=True)
 
 # Upload image
