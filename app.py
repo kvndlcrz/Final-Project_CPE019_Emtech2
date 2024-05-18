@@ -25,7 +25,7 @@ def preprocess_image(image):
 
 #UI
 st.write("""### <span style='color:yellow'>Weather Vision: <span style='color:white'>Predicting Weather Conditions from Image</span>
-    <div style="text-align: center;">\nPredict the weather condition from uploaded images\n
+    \nPredict the weather condition from uploaded images\n
     Possible conditions: cloudy, rainy, sunny, sunset
 """, unsafe_allow_html=True)
 
@@ -36,7 +36,9 @@ st.write("""<div style="text-align: center;"><h2>Github Link\n</h2><a
 \nhttps://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git\n""", 
          unsafe_allow_html=True)
 
-
+st.write("""<div style="text-align: center;"><h2>Github Link
+    \nhttps://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git""", 
+         unsafe_allow_html=True)
 
 if uploaded_image is not None:
     # Display the uploaded image
