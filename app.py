@@ -33,6 +33,7 @@ uploaded_image = st.file_uploader(
     label="Choose an image (jpg, png, jpeg) to classify:",
     type=["jpg", "png", "jpeg"]
 )
+
 st.write("""<div style="text-align:center;">{}<div>""".format(uploaded_image), unsafe_allow_html=True)
 
 st.write("""### <div style="text-align: center;"> Github Link
