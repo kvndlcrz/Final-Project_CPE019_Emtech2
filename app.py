@@ -19,8 +19,7 @@ def preprocess_image(image):
 # Streamlit UI
 st.write("""
     # Weather Classifier App
-    \nPredicts weather condition from uploaded images\n
-    (cloudy', 'rainy', 'shine', 'sunset')
+    \nPredicts weather condition from uploaded images
 """)
 
 st.text("Upload an image.")
