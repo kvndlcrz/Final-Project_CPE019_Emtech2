@@ -30,7 +30,7 @@ st.write("""
 
 # GitHub link
 st.write("""
-<div style="text-align: center;"> GitHub Link
+# <div style="text-align: center;"> GitHub Link
      https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git
  <br><br>""", unsafe_allow_html=True)
 
