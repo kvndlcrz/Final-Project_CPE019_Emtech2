@@ -51,7 +51,7 @@ else:
     prediction = weather_classifier.predict(file)
     
     # Weather class names
-    class_names = ['Cloud', 'Rain', 'Shine', 'Sunrise']  
+    class_names = ['Cloudy', 'Rain', 'Shine', 'Sunrise']  
     
     # Output the result
     if prediction is not None:
