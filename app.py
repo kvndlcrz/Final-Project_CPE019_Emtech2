@@ -14,7 +14,6 @@ def preprocess_image(image):
     return preprocessed_image
 
 # Streamlit UI
-st.image("weather.jpg", width=400)
 st.write("""
     # Model Deployment on the Cloud
     \nAn Application of Convolutional Neural Network in Weather ['cloudy', 'rainy', 'shine', 'sunset'] 
