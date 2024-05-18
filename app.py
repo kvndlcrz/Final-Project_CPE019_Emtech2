@@ -3,12 +3,25 @@ import tensorflow as tf
 from PIL import Image, ImageOps
 import numpy as np
 
+# Define the load_model function
 @st.cache(allow_output_mutation=True)
 def load_model():
     model_path = 'model.h5'  # Adjust the path to your model file
-    model = tf.keras.models.load_model(model_path)
+    model = tf.keras.models.load_model(model_path, compile=False)
     return model
 
+# Load the model
+model = load_model()
+
+# Streamlit app title
+st.write("""
+# Multi-class Weather Classification System
+""")
+
+# File uploader
+file = st.file_uploader("Choose a weather photo from your computer", type=["jpg", "png"])
+
+# Function to preprocess and predict
 def import_and_predict(image_data, model):
     size = (64, 64)  # Adjust size if your model expects a different input size
     image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
@@ -18,14 +31,7 @@ def import_and_predict(image_data, model):
     prediction = model.predict(img_reshape)
     return prediction
 
-model = load_model()
-
-st.write("""
-# Multi-class Weather Classification System
-""")
-
-file = st.file_uploader("Choose a weather photo from your computer", type=["jpg", "png"])
-
+# Process and display prediction
 if file is None:
     st.text("Please upload an image file")
 else:
