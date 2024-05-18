@@ -29,8 +29,8 @@ st.write("""
 """, unsafe_allow_html=True)
 
 # GitHub link
-st.write("""
-<br>#### <div style="text-align: center;"> GitHub Link
+st.write("""<br>
+    #### <div style="text-align: center;"> GitHub Link
      https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git
  <br><br>""", unsafe_allow_html=True)
 
