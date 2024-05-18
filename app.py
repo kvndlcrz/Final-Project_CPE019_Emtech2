@@ -30,7 +30,7 @@ st.write("""### <span style='color:yellow'>Weather Vision: <span style='color:wh
 
 # Upload image
 uploaded_image = st.file_uploader(
-    "Choose an image (jpg, png, jpeg) to classify: ", 
+    """<div style="text-align:center;">Choose an image (jpg, png, jpeg) to classify:</div>""", 
     type=["jpg", "png", "jpeg"]
 )
 
