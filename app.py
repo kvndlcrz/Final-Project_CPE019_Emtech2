@@ -29,8 +29,7 @@ st.write("""
 """, unsafe_allow_html=True)
 
 # GitHub link
-st.write("""
-    <br> ###
+st.write(""" <br><div style="text-align: center;">
     https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git
  <br><br>""", unsafe_allow_html=True)
 
