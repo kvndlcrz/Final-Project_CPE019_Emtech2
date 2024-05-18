@@ -23,9 +23,9 @@ def preprocess_image(image):
     preprocessed_image = np.expand_dims(normalized_image, axis=0)  # Add batch dimension
     return preprocessed_image
 
-#GUI of the apps
+#UI
 st.write("""### <span style='color:yellow'>Weather Vision: <span style='color:white'>Predicting Weather Conditions from Image</span>
-    \nPredict the weather condition from uploaded images\n
+    <div style="text-align: center;">\nPredict the weather condition from uploaded images\n
     Possible conditions: cloudy, rainy, sunny, sunset
 """, unsafe_allow_html=True)
 
