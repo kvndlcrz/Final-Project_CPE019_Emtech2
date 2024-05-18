@@ -32,7 +32,7 @@ st.write("""### <span style='color:yellow'>Weather Vision: <span style='color:wh
 # Upload image
 uploaded_image = st.file_uploader("Choose an image (jpg, png, jpeg) to classify: ", type=["jpg", "png", "jpeg"])
 
-st.write("""##<div style="text-align: center;"><h2>Github Link</h2><a
+st.write("""<div style="text-align: center;"><h2>Github Link\n</h2><a
 \nhttps://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git\n""", 
          unsafe_allow_html=True)
 
