@@ -22,7 +22,7 @@ st.write("""
     \nPredicts weather condition from uploaded images
 """)
 
-st.text("Upload an image (rainy, sunny, cloudy, or sunset) to predict its weather condition.")
+st.text("Upload an image.")
 
 # Upload image
 uploaded_image = st.file_uploader("Choose an image (JPEG, PNG) to classify: ", type=["jpg", "png", "jpeg"])
