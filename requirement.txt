@@ -1,3 +1,0 @@
-streamlit
-tenserflow
-opencv-python-headless
