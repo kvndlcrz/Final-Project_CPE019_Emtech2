@@ -1,17 +1,21 @@
 import streamlit as st
+import tensorflow as tf
 import numpy as np
-from PIL import Image
-from tensorflow.keras.models import load_model
+from PIL import Image, ImageOps
 
-# Load the trained CNN model
-model = load_model('final_model.h5')
+# Function to load the trained model
+@st.cache(allow_output_mutation=True)
+def load_model():
+    model = tf.keras.models.load_model('final_model.h5')
+    return model
 
 # Function to preprocess the uploaded image
 def preprocess_image(image):
-    resized_image = image.resize((150, 150))  # Resize the image to match model input size
-    normalized_image = np.array(resized_image) / 255.0  # Normalize pixel values
-    preprocessed_image = np.expand_dims(normalized_image, axis=0)  # Add batch dimension
-    return preprocessed_image
+    size = (150, 150)
+    image = ImageOps.fit(image, size, Image.ANTIALIAS)
+    img = np.asarray(image)
+    img_reshape = img[np.newaxis, ...]
+    return img_reshape
 
 # Streamlit UI
 st.write("""
@@ -27,6 +31,9 @@ if uploaded_image is not None:
     # Display the uploaded image
     image = Image.open(uploaded_image)
     st.image(image, caption='Uploaded Image', use_column_width=True)
+
+    # Load the model
+    model = load_model()
 
     # Preprocess the image
     preprocessed_image = preprocess_image(image)
