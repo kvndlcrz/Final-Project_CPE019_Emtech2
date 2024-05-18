@@ -24,7 +24,7 @@ def preprocess_image(image):
     return preprocessed_image
 
 #GUI of the apps
-st.write("""### <span style='color:yellow'>Weather Vision: Predicting Weather Conditions from Image</span>
+st.write("""### <span style='color:yellow'>Weather Vision: <span style='color:white'>Predicting Weather Conditions from Image</span>
     \nPredict the weather condition from uploaded images\n
     Possible conditions: cloudy, rainy, sunny, sunset
 """, unsafe_allow_html=True)
@@ -32,7 +32,9 @@ st.write("""### <span style='color:yellow'>Weather Vision: Predicting Weather Co
 # Upload image
 uploaded_image = st.file_uploader("Choose an image (jpg, png, jpeg) to classify: ", type=["jpg", "png", "jpeg"])
 
-st.write("""<div style="text-align: center;"><h2>Github Link</h2><a href="https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git">https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git</a></div>""", unsafe_allow_html=True)
+st.write("""<div style="text-align: center;"><h2>Github Link</h2><a\n 
+href="https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git">https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git</a></div>""", 
+         unsafe_allow_html=True)
 
 
 
