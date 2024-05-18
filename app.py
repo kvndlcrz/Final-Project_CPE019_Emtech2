@@ -23,11 +23,17 @@ def preprocess_image(image):
     preprocessed_image = np.expand_dims(normalized_image, axis=0)  # Add batch dimension
     return preprocessed_image
 
-#UI
+# UI setup
 st.write("""
 ### <span style='color:yellow'>Weather Vision:</span> <span style='color:white'>Predicting Weather Conditions from Image</span>
 <div style="text-align: center;">Predict the weather condition from uploaded images. Possible conditions: cloudy, rainy, sunny, sunset</div>
 <br><br>
+""", unsafe_allow_html=True)
+
+# GitHub link
+st.write("""
+### <br><div style="text-align: center;"> GitHub Link
+     [https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git](https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git)
 """, unsafe_allow_html=True)
 
 # Upload image
@@ -35,11 +41,6 @@ uploaded_image = st.file_uploader(
     label="Choose an image (jpg, png, jpeg) to classify:",
     type=["jpg", "png", "jpeg"]
 )
-
-
-st.write("""### <br><div style="text-align: center;"> Github Link
-     https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git""", 
-         unsafe_allow_html=True)
 
 if uploaded_image is not None:
     # Display the uploaded image
@@ -63,4 +64,8 @@ if uploaded_image is not None:
         predicted_condition = weather_conditions[np.argmax(prediction)]
 
         # Display the prediction
-        st.write("Predicted Weather Condition:", predicted_condition)
+        st.write(f"Predicted Weather Condition: **{predicted_condition}**")
+    else:
+        st.write("Failed to load the model.")
+else:
+    st.write("Please upload an image to get a prediction.")
