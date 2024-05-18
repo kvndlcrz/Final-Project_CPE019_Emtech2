@@ -8,7 +8,7 @@ import numpy as np
 def load_model():
     try:
         st.write("Attempting to load the model...")
-        model = tf.keras.models.load_model('final_model.h5')
+        model = tf.keras.models.load_model('best.h5')
         st.write("Model loaded successfully!")
         return model
     except Exception as e:
