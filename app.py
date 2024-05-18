@@ -25,7 +25,7 @@ def preprocess_image(image):
 
 # Streamlit UI
 st.write("""
-    # Weather Classifier App
+    ## Weather Vision: Predicting Weather Conditions from Images
     \nPredict the weather condition from uploaded images\n
     Possible conditions: cloudy, rainy, sunny, sunset
 """)
