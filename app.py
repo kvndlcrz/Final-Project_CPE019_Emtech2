@@ -23,11 +23,12 @@ def preprocess_image(image):
     preprocessed_image = np.expand_dims(normalized_image, axis=0)  # Add batch dimension
     return preprocessed_image
 
-# Streamlit UI
-st.write("""<span style="color:green">### Weather Vision: Predicting Weather Conditions from Image</span>
+#GUI of the apps
+st.write("""### <span style='color:green'>Weather Vision: Predicting Weather Conditions from Image</span>
     \nPredict the weather condition from uploaded images\n
     Possible conditions: cloudy, rainy, sunny, sunset
-""")
+""", unsafe_allow_html=True)
+
 
 st.text("Upload an image.")
 
