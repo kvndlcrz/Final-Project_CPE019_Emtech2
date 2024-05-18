@@ -63,7 +63,7 @@ example_images = {
     'Cloudy',
     'Rain',
     'Shine', 
-    'Sunrise': 
+    'Sunrise'
 }
 for label, path in example_images.items():
     image = Image.open(path)
