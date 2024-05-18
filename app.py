@@ -27,7 +27,8 @@ st.text("Upload an image.")
 
 # Upload image
 uploaded_image = st.file_uploader("Choose an image (jpg, png, jpeg)  to classify: ", type=["jpg", "png", "jpeg\n"])
- st.write("""
+
+st.write("""
     # Weather Classifier App
     \nPredicts weather condition from uploaded images\n
     cloudy, rainy, shine, sunset
