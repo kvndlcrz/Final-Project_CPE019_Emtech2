@@ -35,12 +35,6 @@ if uploaded_image is not None:
     # Load the model
     model = load_model()
 
-    # Preprocess the image
-    preprocessed_image = preprocess_image(image)
-
-    # Make prediction
-    prediction = model.predict(preprocessed_image)
-
     # Define weather categories
     weather_categories = ['Cloudy', 'Rainy', 'Sunny', 'Sunset']
 
@@ -50,4 +44,3 @@ if uploaded_image is not None:
 
     # Display prediction result
     st.write("Predicted Weather Condition:", predicted_weather)
-    st.write("Prediction Confidence:", prediction[0][max_index])
