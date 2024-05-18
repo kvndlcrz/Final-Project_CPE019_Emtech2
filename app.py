@@ -24,7 +24,7 @@ def preprocess_image(image):
     return preprocessed_image
 
 #UI
-st.write("""### <span style='color:yellow'>Weather Vision: <span style='color:white'>Predicting Weather Conditions from Image</span>
+st.write(""" <span style='color:yellow'>Weather Vision: <span style='color:white'>Predicting Weather Conditions from Image</span>
     \nPredict the weather condition from uploaded images. 
     \nPossible conditions: cloudy, rainy, sunny, sunset\n
 """, unsafe_allow_html=True)
