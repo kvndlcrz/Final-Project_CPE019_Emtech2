@@ -19,13 +19,14 @@ def preprocess_image(image):
 # Streamlit UI
 st.write("""
     # Weather Classifier App
-    \nPredicts weather condition from uploaded images
+    \nPredicts weather condition from uploaded images\
+    (cloudy', 'rainy', 'shine', 'sunset')
 """)
 
 st.text("Upload an image.")
 
 # Upload image
-uploaded_image = st.file_uploader("Choose an image (JPEG, PNG) to classify: ", type=["jpg", "png", "jpeg"])
+uploaded_image = st.file_uploader("Choose an image (jpg, png, jpeg)  to classify: ", type=["jpg", "png", "jpeg"])
 
 if uploaded_image is not None:
     # Display uploaded image
