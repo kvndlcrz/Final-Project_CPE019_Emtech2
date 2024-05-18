@@ -29,11 +29,11 @@ st.write("""### <span style='color:yellow'>Weather Vision: Predicting Weather Co
     Possible conditions: cloudy, rainy, sunny, sunset
 """, unsafe_allow_html=True)
 
-
-st.text("Upload an image.")
-
 # Upload image
 uploaded_image = st.file_uploader("Choose an image (jpg, png, jpeg) to classify: ", type=["jpg", "png", "jpeg"])
+
+st.write("""\Github Link\n
+   https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git""")
 
 if uploaded_image is not None:
     # Display the uploaded image
