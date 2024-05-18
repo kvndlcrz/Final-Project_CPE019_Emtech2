@@ -7,6 +7,7 @@ from PIL import Image
 @st.cache(allow_output_mutation=True)
 def load_model():
     try:
+        st.write("Loading the pre-trained weather classification model...")
         model = tf.keras.models.load_model('final_model.h5')
         st.success("Model loaded successfully!")
         return model
