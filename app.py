@@ -6,7 +6,7 @@ from PIL import Image
 # Load the pre-trained weather classification model
 def load_model():
     try:
-        st.write("Loading the pre-trained weather classification model...")
+        st.write("Model Result...")
         model = tf.keras.models.load_model('final_model.h5')
         st.success("Model loaded successfully!")
         return model
@@ -31,7 +31,7 @@ st.write("""
 
 # GitHub link
 st.write("""
-### <br><div style="text-align: center;"> GitHub Link
+### <div style="text-align: center;"> GitHub Link
      [https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git](https://github.com/kvndlcrz/Final-Project_CPE019_Emtech2.git)
 """, unsafe_allow_html=True)
 
